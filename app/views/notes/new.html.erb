@@ -1,0 +1,5 @@
+<div class="card-body">
+<%= turbo_frame_tag "new_note" do %>
+    <%= render "form", note: @note %>
+  <% end %>
+</div>

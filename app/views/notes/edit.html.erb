@@ -1,0 +1,13 @@
+
+
+<div class="card shadow-sm">
+  <div class="card-header bg-warning">
+    Edit Note
+  </div>
+<turbo-frame id="<%= dom_id(@note) %>">
+  <div class="card-body">
+    <%= render "form", note: @note %>
+  </div>
+</div>
+
+</turbo-frame>

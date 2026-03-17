@@ -1,0 +1,20 @@
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+      <%= form_with(model: note) do |f| %>
+
+        <%= f.text_field :title,
+              class: "form-control mb-2",
+              placeholder: "Title" %>
+
+        <%= f.text_area :content,
+              class: "form-control mb-2",
+              rows: 3,
+              placeholder: "Content" %>
+
+        <%= f.submit note.persisted? ? "Update Note" : "Create Note", class: "btn btn-success w-100" %>
+
+      <% end %>
+    </div>
+  </div>
