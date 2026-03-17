@@ -1,20 +1,24 @@
-<div class="card shadow-sm">
-  <div class="card-body">
+<%= turbo_frame_tag "new_note_form" do %>
 
-    <input type="text"
-      class="form-control mb-2"
-      placeholder="Title"
-      disabled>
+  <div class="card shadow-sm">
+    <div class="card-body">
 
-    <textarea
-      class="form-control mb-2"
-      rows="3"
-      placeholder="Content"
-      disabled></textarea>
+      <input type="text"
+        class="form-control mb-2"
+        placeholder="Title"
+        disabled>
 
-    <button class="btn btn-success w-100" disabled>
-      Create Note
-    </button>
+      <textarea
+        class="form-control mb-2"
+        rows="3"
+        placeholder="Content"
+        disabled></textarea>
 
+      <button class="btn btn-success w-100" disabled>
+        Create Note
+      </button>
+
+    </div>
   </div>
-</div>
+
+<% end %>
