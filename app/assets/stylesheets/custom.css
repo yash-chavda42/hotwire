@@ -1,0 +1,583 @@
+.note-form-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border: 1px solid #e5e7eb;
+
+  max-width: 700px;        /* 👈 fixed width */
+  margin: 20px auto;   /* center horizontally */
+}
+
+/* FORM */
+.note-form {
+  position: relative;
+}
+
+/* ROW */
+.form-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+/* ICON BUTTON BASE (for both submit & cancel) */
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+/* INPUTS */
+.input {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #f9fafb;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.input.title {
+  flex: 0 0 180px;   /* fixed width */
+}
+
+.input.content {
+  flex: 1;           /* takes remaining space */
+  min-width: 250px;  /* prevents too much shrink */
+}
+
+.input:focus {
+  background: #eef1ff;
+  border-color: #6366f1; /* 👈 focus border */
+}
+
+.submit-btn {
+  background: #4CAF50;
+  color: white;
+}
+
+.submit-btn:hover {
+  background: #43a047;
+  transform: scale(1.05);
+}
+
+.cancel-btn {
+  background: #ef0404;
+  color: #fdfbfb;
+}
+
+.cancel-btn:hover {
+  background: #ef0404;
+  transform: scale(1.05);
+}
+
+/* ERROR */
+.error-message {
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #ff4d4f;
+}
+
+/* Placeholder specific */
+.placeholder-card {
+  height: 90px; /* 👈 similar height feel as form */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center content */
+.placeholder-content {
+  text-align: center;
+}
+
+/* Text styling */
+.placeholder-text {
+  color: #9ca3af;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Optional hover effect */
+.placeholder-card:hover {
+  border-color: #6366f1;
+  background: #fafbff;
+  transition: 0.2s;
+}
+
+/* Note item spacing */
+.note-item {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Content */
+.note-content {
+  flex: 1;
+}
+
+.note-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.note-title a {
+  text-decoration: none;
+  color: #111827;
+}
+
+.note-title a:hover {
+  color: #6366f1;
+}
+
+.note-text {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Actions */
+.note-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Edit button */
+.edit-btn {
+  background: #facc15;
+  color: #000;
+}
+
+.edit-btn:hover {
+  background: #eab308;
+  transform: scale(1.05);
+}
+
+/* Delete button */
+.delete-btn {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #d9363e;
+  transform: scale(1.05);
+}
+
+/* Reserve space always */
+.error-container {
+  height: 5px;
+  margin-bottom: 15px;  /* 👈 increase from 4px → 8px */
+}
+
+/* Error text */
+.error-message {
+  font-size: 15px;   /* slightly smaller */
+  color: #ff4d4f;
+}
+
+.placeholder-text {
+  color: #9ca3af;              /* soft gray */
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;                   /* space between icon & text */
+  transition: 0.2s ease;
+}
+
+/* subtle hover effect */
+.placeholder-card:hover .placeholder-text {
+  color: #6366f1;             /* soft indigo on hover */
+  transform: translateY(-1px);
+}
+
+/* Container centered */
+#flash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;        /* 👈 fixed reserved space */
+  margin-bottom: 10px;
+}
+#flash-container:empty {
+  height: 50px;  /* still reserve space */
+}
+/* Flash message */
+.flash-message {
+  min-width: 280px;
+  max-width: 400px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #6366f1;
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  font-size: 14px;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: fadeSlideDown 0.25s ease;
+}
+
+/* Success */
+.flash-message.notice {
+  border-left-color: #4CAF50;
+}
+
+/* Error */
+.flash-message.alert {
+  border-left-color: #ff4d4f;
+}
+
+/* Close */
+.flash-close {
+  cursor: pointer;
+  margin-left: 10px;
+  color: #9ca3af;
+}
+
+.flash-close:hover {
+  color: #111827;
+}
+
+/* Animation */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Base flash */
+.custom-flash {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #6366f1;
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  font-size: 14px;
+  color: #111827;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  animation: fadeSlideDown 0.25s ease;
+  animation: fadeOut 0.4s ease forwards;
+  animation-delay: 1s; /* 👈 wait 1 second */
+}
+
+/* Success */
+.custom-flash.notice {
+  border-left-color: #4CAF50;
+}
+
+/* Error */
+.custom-flash.alert {
+  border-left-color: #ff4d4f;
+}
+
+/* Close button */
+.flash-close {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #9ca3af;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.flash-close:hover {
+  color: #111827;
+}
+
+/* Animation */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+/* CARD */
+.auth-card {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 28px 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* TITLE */
+.auth-title {
+  font-size: 26px;   /* 👈 was 22px */
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* INPUT */
+.auth-input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: #f9fafb;
+  font-size: 15px;      /* 👈 was 14px */
+  outline: none;
+  transition: 0.2s;
+}
+
+.auth-input:focus {
+  background: #eef1ff;
+  border-color: #6366f1;
+}
+
+/* BUTTON */
+.auth-btn {
+  margin-top: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #6366f1;
+  color: white;
+  font-size: 18px;   /* 👈 was 16px */
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.auth-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+/* FOOTER */
+.auth-footer {
+  font-size: 14px;   /* 👈 was 13px */
+  color: #6b7280;
+}
+
+/* LINK */
+.auth-link {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* NAVBAR */
+.custom-navbar {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  border-bottom: none;
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* CONTAINER */
+.nav-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LEFT */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo {
+  font-size: 20px;
+}
+
+.nav-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+/* RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* BUTTON BASE */
+.nav-btn {
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 13px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* PRIMARY (signup) */
+.primary-btn {
+  background: #6366f1;
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #4f46e5;
+}
+
+/* OUTLINE (login) */
+.outline-btn {
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  background: transparent;
+}
+
+.outline-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* LOGOUT */
+.logout-btn {
+  background: #ff4d4f;
+  color: white;
+}
+
+.logout-btn:hover {
+  background: #d9363e;
+}
+
+/* ICON BUTTON LOOK */
+.logout-btn i {
+  font-size: 14px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE FIXES
+   ========================= */
+@media (max-width: 768px) {
+
+  /* Card spacing */
+  .note-form-card {
+    margin: 12px;
+    padding: 16px;
+  }
+
+  /* Stack inputs vertically */
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Inputs full width */
+  .input.title,
+  .input.content {
+    flex: 1;
+    width: 100%;
+    min-width: unset;
+  }
+
+  /* Buttons full width */
+  .icon-btn {
+    width: 100%;
+    height: 44px;
+  }
+
+  /* Notes list stacking */
+  .note-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .note-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  /* Navbar stacking */
+  .nav-container {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  /* Auth card */
+  .auth-card {
+    margin: 20px 12px;
+    padding: 20px;
+  }
+
+  /* Flash message */
+  .flash-message,
+  .custom-flash {
+    width: 90%;
+    max-width: 100%;
+  }
+
+  /* Placeholder */
+  .placeholder-card {
+    height: auto;
+    padding: 12px;
+  }
+}

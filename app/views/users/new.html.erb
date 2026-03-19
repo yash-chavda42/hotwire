@@ -1,0 +1,25 @@
+<div class="auth-card">
+  <h2 class="auth-title">Create Account ✨</h2>
+
+  <%= form_with model: @user, class: "auth-form" do |f| %>
+    <%= f.email_field :email,
+          placeholder: "Email",
+          class: "auth-input" %>
+
+  <%= f.password_field :password,
+          placeholder: "Password",
+          class: "auth-input" %>
+
+    <%= f.password_field :password_confirmation,
+          placeholder: "Confirm Password",
+          class: "auth-input" %>
+
+    <%= f.submit "Sign Up", class: "auth-btn" %>
+
+  <% end %>
+
+  <p class="auth-footer">
+    Already have an account?
+    <%= link_to "Login", login_path, class: "auth-link" %>
+  </p>
+</div>

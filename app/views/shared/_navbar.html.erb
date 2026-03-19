@@ -1,0 +1,33 @@
+<nav class="custom-navbar">
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <div class="nav-left">
+      <span class="nav-logo">📝</span>
+      <span class="nav-title">NotesApp</span>
+    </div>
+
+    <!-- Actions -->
+    <div class="nav-right">
+      <% if current_user %>
+        <%= button_to logout_path,
+              method: :delete,
+              data: { turbo: false },
+              class: "nav-btn logout-btn" do %>
+          <i class="fa-solid fa-right-from-bracket"></i>
+        <% end %>
+
+      <% elsif controller_name == "sessions" && action_name == "new" %>
+        <%= link_to new_user_path, class: "nav-btn primary-btn" do %>
+          Sign Up
+        <% end %>
+
+      <% elsif controller_name == "users" && action_name == "new" %>
+        <%= link_to login_path, class: "nav-btn outline-btn" do %>
+          Login
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</nav>

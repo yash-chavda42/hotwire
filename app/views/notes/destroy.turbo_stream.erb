@@ -1,1 +1,7 @@
 <%= turbo_stream.remove @note %>
+<%= render_turbo_stream_flash_messages %>
+<% unless current_user.notes.exists? %>
+  <%= turbo_stream.update "new_note_form" do %>
+    <%= render "notes/placeholder" %>
+  <% end %>
+<% end %>

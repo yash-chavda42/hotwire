@@ -1,20 +1,28 @@
+<div class="note-form-card">
+  <%= form_with(model: note, class: "note-form") do |f| %>
 
-  <div class="card shadow-sm">
-    <div class="card-body">
-
-      <%= form_with(model: note) do |f| %>
-
-        <%= f.text_field :title,
-              class: "form-control mb-2",
-              placeholder: "Title" %>
-
-        <%= f.text_area :content,
-              class: "form-control mb-2",
-              rows: 3,
-              placeholder: "Content" %>
-
-        <%= f.submit note.persisted? ? "Update Note" : "Create Note", class: "btn btn-success w-100" %>
-
+    <div class="error-container">
+      <% if note.errors.any? %>
+        <div class="error-message">
+          <%= note.errors.full_messages.to_sentence.capitalize %>
+        </div>
       <% end %>
     </div>
-  </div>
+
+    <div class="form-row">
+      <%= f.text_field :title, class: "input title", placeholder: "Title" %>
+      <%= f.text_field :content, class: "input content", placeholder: "Content" %>
+
+      <!-- Submit Button -->
+      <%= button_tag type: "submit", class: "icon-btn submit-btn" do %>
+        <i class="fa-solid fa-arrow-right"></i>
+      <% end %>
+
+      <!-- Cancel Button -->
+      <%= link_to notes_path, class: "icon-btn cancel-btn" do %>
+        <i class="fa-solid fa-xmark"></i>
+      <% end %>
+    </div>
+
+  <% end %>
+</div>

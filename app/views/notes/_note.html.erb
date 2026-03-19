@@ -1,20 +1,27 @@
 <turbo-frame id="<%= dom_id(note) %>">
-  <div class="card shadow-sm mb-3">
-    <div class="card-body">
-      <h5><%= note.title %></h5>
-      <p><%= note.content %></p>
+  <div class="note-form-card note-item">
+    
+    <div class="note-content">
+      <h5 class="note-title">
+        <%= link_to note.title, note_path(note), data: { turbo_frame: "_top" } %>
+      </h5>
 
-      <%= link_to "Edit",
-            edit_note_path(note),
-            data: { turbo_frame: dom_id(note) },
-            class: "btn btn-sm btn-warning" %>
-
-      <%= link_to "Delete",
-          note_path(note),
-          data: {
-            turbo_method: :delete
-          },
-          class: "btn btn-sm btn-danger" %>
+      <p class="note-text"><%= note.content %></p>
     </div>
+
+    <div class="note-actions">
+      <%= link_to edit_note_path(note),
+            data: { turbo_frame: dom_id(note) },
+            class: "icon-btn edit-btn" do%>
+              <i class="fas fa-edit"></i>
+            <% end %>
+
+      <%= link_to note_path(note),
+            data: { turbo_method: :delete },
+            class: "icon-btn delete-btn" do %>
+              <i class="fas fa-trash"></i>
+            <% end %>
+    </div>
+
   </div>
 </turbo-frame>

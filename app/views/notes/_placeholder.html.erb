@@ -1,23 +1,10 @@
 <%= turbo_frame_tag "new_note_form" do %>
 
-  <div class="card shadow-sm">
-    <div class="card-body">
-
-      <input type="text"
-        class="form-control mb-2"
-        placeholder="Title"
-        disabled>
-
-      <textarea
-        class="form-control mb-2"
-        rows="3"
-        placeholder="Content"
-        disabled></textarea>
-
-      <button class="btn btn-success w-100" disabled>
-        Create Note
-      </button>
-
+  <div class="note-form-card placeholder-card">
+    <div class="placeholder-content">
+      <p class="placeholder-text">
+        ✍️ Click "New Note" to create a note
+      </p>
     </div>
   </div>
 
